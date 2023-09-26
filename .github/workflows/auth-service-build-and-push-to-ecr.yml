@@ -25,9 +25,12 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Login to Amazon ECR
+      - name: Login to Amazon ECR Public
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
+        with:
+          mask-password: 'true'
+          registry-type: public
 
       - name: Build, tag, and push image to Amazon ECR
         env:
@@ -35,6 +38,5 @@ jobs:
           ECR_REPOSITORY: auth-service-repo
           IMAGE_TAG: latest
         run: |
-          echo "ecr registry: $ECR_REGISTRY"
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ./auth-service
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
