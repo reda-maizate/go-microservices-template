@@ -35,7 +35,7 @@ jobs:
       - name: Build, tag, and push image to Amazon ECR
         env:
           REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          REGISTRY_ALIAS: o1u5i5p8
+          REGISTRY_ALIAS: ${{ secrets.AUTH_SERVICE_REGISTRY_ALIAS }}
           REPOSITORY: auth-service-repo
           IMAGE_TAG: latest
         run: |
