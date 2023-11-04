@@ -1,14 +1,14 @@
-# Back-end
+# Go Microservices Template
 
-This repository contains the code of all the microservices that compose the back-end of Formizi.
+This repository is a template that contains an example of a back-end for a web application.
 
-## Microservices
+## Architecture
 
 The back-end is composed of the following microservices:
 
 - [**`auth`**](auth-service/README.md): The authentication and authorization service.
 - [**`users`**](users-service/README.md): The users service.
 
-## Add a new microservice
+## Getting Started
 
 To add a new microservice, you can use the [**`microservice-template`**](microservice-template/README.md) repository as a starting point.
